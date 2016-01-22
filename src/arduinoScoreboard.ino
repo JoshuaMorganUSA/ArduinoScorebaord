@@ -218,6 +218,8 @@ int get7seg(String input)
 		return 0b1000111;
 	else if (input == "G")
 		return 0b1011111;
+	else if (input == "K")
+		return 0b00001101;
 	else if (input == "T")
 		return 0b0001111;
 	else if (input == "DEGREE")
