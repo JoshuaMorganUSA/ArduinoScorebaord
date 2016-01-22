@@ -191,25 +191,25 @@ void parseInput(String instring)
 int get7seg(String input)
 {
 	if		(input == "0" || input == "O")
-		return 0x7E;
+		return 0b11111100;
 	else if	(input == "1")
-		return 0x30;
+		return 0b01100000;
 	else if	(input == "2")
-		return 0x6D;
+		return 0b11011010;
 	else if (input == "3")
-		return 0x79;
+		return 0b11110010;
 	else if (input == "4")
-		return 0x33;
+		return 0b01100110;
 	else if (input == "5" || input == "S")
-		return 0x5B;
+		return 0b10110110;
 	else if (input == "6")
-		return 0x5F;
+		return 0b10111110;
 	else if (input == "7")
-		return 0x70;
+		return 0b1110000;
 	else if (input == "8")
-		return 0x7F;
+		return 0b11111110;
 	else if (input == "9")
-		return 0x7B;
+		return 0b1111011;
 	else if (input == "A")
 		return 0b1110111;
 	else if (input == "C")
@@ -230,12 +230,7 @@ int get7seg(String input)
 
 void writedisplay(int char1, int char2)
 {
-	
-	//Each char1, char2 int has a leading 0
-	//Shift things around so that data holds
-	//16 bits of data. The 2 lsb's are unused
-	//and are set to 0; 
-	int data = (char1 << 9) | (char2 << 1);
+	int data = (char1 << 8) | (char2);
 	
 	
 	int redvalue = currentred;
