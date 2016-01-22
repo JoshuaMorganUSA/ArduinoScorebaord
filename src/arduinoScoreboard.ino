@@ -61,14 +61,7 @@ void setup() {
 	
 	Serial.begin(9600);
 	Serial.println("START");
-	/*
-	digitalWrite(latchPin, LOW);
-	shiftOut(dataPin, clockPin, LSBFIRST, data);
-	shiftOut(dataPin, clockPin, LSBFIRST, (data >> 8));	
-	digitalWrite(latchPin, HIGH);	
 	
-	
-	*/
 	
 	writedisplay(get7seg(""), get7seg(""));
 	
@@ -83,95 +76,6 @@ void setup() {
 
 
 void loop() {
-	//unsigned int data = 0x8000;
-	/*	int data = 0;	
-	for(int i = 0; i < 16; i++)
-	{
-
-		if(i == 0)
-			data = 1;
-		else	
-			data = 0;
-		
-		
-		digitalWrite(latchPin, LOW);
-		//shiftOut(dataPin, clockPin, LSBFIRST, data);
-		//shiftOut(dataPin, clockPin, LSBFIRST, (data >> 8));	
-		digitalWrite(clockPin, LOW);
-		digitalWrite(dataPin, data);
-		digitalWrite(clockPin, HIGH);
-		//digitalWrite(latchPin, LOW);
-		digitalWrite(latchPin, HIGH);
-		
-		
-		if(i == 13 )
-		{
-			digitalWrite(led_red, HIGH);
-			digitalWrite(led_blue, LOW);
-			digitalWrite(led_green, LOW);
-			
-		}
-		
-		else if(i == 12)
-		{
-			digitalWrite(led_red, LOW);
-			digitalWrite(led_blue, HIGH);
-			digitalWrite(led_green, LOW);
-		}
-		else
-		{
-			digitalWrite(led_red, HIGH);
-			digitalWrite(led_blue, HIGH);
-			digitalWrite(led_green, HIGH);			
-		}
-		
-		//Serial.println(i);
-		//delay(500);
-		
-		//data = data >> 1;
-	}
-	
-	*/
-	/*
-	
-	unsigned int data = 0x0004;
-	
-	digitalWrite(latchPin, LOW);
-	shiftOut(dataPin, clockPin, LSBFIRST, data);
-	shiftOut(dataPin, clockPin, LSBFIRST, (data >> 8));	
-	digitalWrite(latchPin, HIGH);	
-	
-	digitalWrite(led_red, LOW);
-	digitalWrite(led_blue, HIGH);
-	digitalWrite(led_green, LOW);
-	
-	
-	delay(500);
-	data = 0x0008;
-	digitalWrite(latchPin, LOW);
-	shiftOut(dataPin, clockPin, LSBFIRST, data);
-	shiftOut(dataPin, clockPin, LSBFIRST, (data >> 8));	
-	digitalWrite(latchPin, HIGH);		
-	
-	digitalWrite(led_green, LOW);
-	digitalWrite(led_blue, LOW);
-	for(int i = 255; i >= 0; i--)
-	{
-		analogWrite(led_red, i);
-		delay(2);
-	}
-	delay(50);
-	*/
-	/*
-	int incomingByte = 0;
-	if(Serial.available() > 0)
-	{
-		incomingByte = Serial.read();
-		
-		Serial.print("I received: ");
-		Serial.println(incomingByte, DEC);
-	}	
-	*/
 	
 	
 	if(stringComplete)
@@ -189,139 +93,6 @@ void loop() {
 		stringComplete = false;
 	}
 	
-	
-	/*
-	if(firstrun)
-	{
-		for(int i = 0; i < 30; i++)
-			delay(1000);
-		firstrun = 0;
-	}
-	
-	*/
-	/*
-	
-	int lastred = 255;
-	int lastgreen = 255;
-	int lastblue = 255;
-	
-	for(int i = 0; i<10;i++)
-	{
-		
-			int redval = random(0, 255);
-			int greenval = random(0,255);
-			int blueval = 255 - redval - greenval;
-			if(blueval < 0)
-				blueval = 0;
-			if(blueval > 255)
-				blueval = 255;
-			
-			
-			
-	
-		for(int j = 0; j< 10; j++)
-		{
-			
-			writergb(map(j, 0, 9, lastred, redval),map(j, 0, 9, lastgreen, greenval),map(j, 00, 9, lastblue, blueval));
-			//analogWrite(led_green, );
-			//analogWrite(led_blue, );
-			
-			//writergb(155,155,155);
-			String tens = String(i);
-			String ones = String(j);
-			writedisplay(get7seg(tens), get7seg(ones));
-			delay(300);
-			
-		}
-		
-		lastred = redval;
-		lastgreen = greenval;
-		lastblue = blueval;
-		
-	
-			
-	}
-	*/
-	
-
-	
-	
-	/*
-	digitalWrite(led_red, LOW);
-	digitalWrite(led_green,LOW);
-	digitalWrite(led_blue, LOW);
-	delay(500);
-	writedisplay(get7seg("8"),get7seg(""));
-	
-	for(int i = 0; i<256; i++)
-	{
-		analogWrite(led_blue,i);
-		if(i > 128)
-		{
-			int val = map(255 - i, 255-128, 0, 0, 255);
-			analogWrite(led_red, val);
-			analogWrite(led_green, val);
-		}
-		delay(1);
-	}
-	
-	for(int i = 255; i >=0; i--)
-	{
-		analogWrite(led_red, i);
-		analogWrite(led_green,i);
-		delayMicroseconds(50);
-	}
-	
-	
-	delay(1000);
-	
-	
-	*/
-	/*
-	int data = 0xFFFF;
-	digitalWrite(latchPin, LOW);
-	shiftOut(dataPin, clockPin, LSBFIRST, data);
-	shiftOut(dataPin, clockPin, LSBFIRST, (data >> 8));	
-	digitalWrite(latchPin, HIGH);	
-	
-	delay(1000);
-	
-	data = 0x0000;
-	digitalWrite(latchPin, LOW);
-	shiftOut(dataPin, clockPin, LSBFIRST, data);
-	shiftOut(dataPin, clockPin, LSBFIRST, (data >> 8));	
-	digitalWrite(latchPin, HIGH);	
-	
-	delay(1000);
-	
-	
-	*/
-	
-/*
-	writergb(0,0,0);
-	writedisplay(get7seg("G"), get7seg("O"));
-
-	for(int i = 0; i < 100; i++)
-	{
-		writergb(0,0,i);
-		delay(4);
-	}
-	delay(500);
-	writergb(0,0,0);
-	delay(100);
-	writergb(0,0,100);
-	writedisplay(get7seg("C"), get7seg("A"));
-	delay(700);
-	writedisplay(get7seg("A"), get7seg("T"));
-	delay(700);
-	writedisplay(get7seg("T"), get7seg("S"));
-	delay(700);
-	writedisplay(get7seg("S"), get7seg(""));
-	delay(700);
-	writedisplay(get7seg(""), get7seg(""));
-	delay(750);
-	
-	*/
 	
 }
 
@@ -478,17 +249,6 @@ void writedisplay(int char1, int char2)
 	digitalWrite(latchPin, HIGH);
 	writergb(redvalue, greenvalue, bluevalue);
 
-		
-		
-		/*
-	digitalWrite(latchPin, LOW);
-	digitalWrite(latch2, LOW);
-	shiftOut(dataPin, clockPin, LSBFIRST, (char1 << 1 ));
-	shiftOut(data2, clock2, LSBFIRST, (char2 << 1));
-	digitalWrite(latchPin, HIGH);
-	digitalWrite(latch2, HIGH);
-	
-	*/
 }
 
 
