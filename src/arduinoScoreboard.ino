@@ -202,7 +202,7 @@ int get7seg(String input)
 		return 0b01100110;
 	else if (input == "5" || input == "S")
 		return 0b10110110;
-	else if (input == "6")
+	else if (input == "6" || input == "G")
 		return 0b10111110;
 	else if (input == "7")
 		return 0b1110000;
@@ -216,8 +216,6 @@ int get7seg(String input)
 		return 0b1001110;	
 	else if (input == "F")
 		return 0b1000111;
-	else if (input == "G")
-		return 0b1011111;
 	else if (input == "U")
 		return 0b01111100;
 	else if (input == "K")
