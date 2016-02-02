@@ -238,11 +238,14 @@ void writedisplay(int char1, int char2)
 	int redvalue = currentred;
 	int greenvalue = currentgreen;
 	int bluevalue = currentblue;
+	delayMicroseconds(500);
+	digitalWrite(latchPin,LOW);
 	writergb(0,0,0);
-	delay(1);
-	digitalWrite(latchPin, LOW);
+//	delay(1);
+	delayMicroseconds(500);
 	shiftOut(dataPin, clockPin, LSBFIRST, data);
 	shiftOut(dataPin, clockPin, LSBFIRST, (data >> 8));	
+	delayMicroseconds(500);
 	digitalWrite(latchPin, HIGH);
 	writergb(redvalue, greenvalue, bluevalue);
 
